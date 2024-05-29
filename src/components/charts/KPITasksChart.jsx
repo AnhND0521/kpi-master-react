@@ -42,7 +42,7 @@ const KPITasksChart = (props) => {
       />
       <div className='absolute top-0 left-0 w-1/2 h-full flex items-center justify-center'>
         <div>
-          <Typography className='font-inter text-xl font-bold'>
+          <Typography className='font-inter text-center text-xl font-bold'>
             {total}
           </Typography>
           <Typography className='font-inter text-lg font-regular'>

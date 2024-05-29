@@ -352,6 +352,163 @@ const data = [
                 quality: 5
             }
         ]
+    },
+    {
+        id: '4',
+        name: 'Giảng dạy',
+        description: '',
+        due: new Date("2024-05-01"),
+        repeat: 0,
+        weights: {
+            quantity: 50,
+            quality: 25,
+            time: 25
+        },
+        tasks: [
+            {
+                id: '1.1',
+                name: 'Dạy UI/UX',
+                date: new Date("2024-04-16"),
+                start: "9:20",
+                end: "11:45",
+                status: 1,
+                repeat: 0,
+                noti: 1,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-16T13:59:00.000Z")
+            },
+            {
+                id: '1.2',
+                name: 'Dạy hệ tương tác',
+                date: new Date("2024-04-13"),
+                start: "12:30",
+                end: "14:00",
+                status: 1,
+                repeat: 0,
+                noti: 1,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-13T13:59:00.000Z")
+            },
+            {
+                id: '1.3',
+                name: 'Dạy công nghệ phần mềm',
+                date: new Date("2024-04-14"),
+                start: "15:05",
+                end: "17:30",
+                status: 1,
+                repeat: 0,
+                noti: 1,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-14T16:45:00.000Z")
+            },
+            {
+                id: '1.4',
+                name: 'Chấm bài sinh viên',
+                date: new Date("2024-04-15"),
+                start: "17:30",
+                end: "19:00",
+                status: 1,
+                repeat: 0,
+                noti: 2,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-13T13:59:00.000Z")
+            },
+            {
+                id: '1.5',
+                name: 'Soạn đề thi cuối kỳ',
+                date: new Date("2024-04-20"),
+                start: "12:30",
+                end: "14:00",
+                status: 1,
+                repeat: 0,
+                noti: 1,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-20T13:59:00.000Z")
+            },
+            {
+                id: '1.6',
+                name: 'Dạy IT4321',
+                date: new Date("2024-04-25"),
+                start: "8:25",
+                end: "11:45",
+                status: 1,
+                repeat: 0,
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-24T13:59:00.000Z")
+            },
+            {
+                id: '1.7',
+                name: 'Dạy IT1234',
+                date: new Date("2024-04-22"),
+                start: "14:10",
+                end: "15:50",
+                status: 1,
+                repeat: 0,
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-22T13:59:00.000Z")
+            },
+            {
+                id: '1.8',
+                name: 'Chấm bài',
+                date: new Date("2024-04-29"),
+                start: "11:45",
+                end: "15:00",
+                status: 1,
+                repeat: 0,
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-29T15:59:00.000Z")
+            },
+            {
+                id: '1.9',
+                name: 'Soạn giáo án',
+                date: new Date("2024-04-29"),
+                start: "8:25",
+                end: "12:30",
+                status: 1,
+                repeat: 0,
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-29T13:59:00.000Z")
+            },
+            {
+                id: '1.10',
+                name: 'Lên kế hoạch giảng dạy',
+                date: new Date("2024-04-28"),
+                start: "14:30",
+                end: "16:30",
+                status: 1,
+                repeat: 0,
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-04-28T13:59:00.000Z")
+            },
+            {
+                id: '1.11',
+                name: 'Họp bộ môn',
+                date: new Date("2024-05-01"),
+                start: "9:30",
+                end: "11:30",
+                status: 1,
+                repeat: 0,
+                noti: 0,
+                priority: 2,
+                quality: 5,
+                completed: new Date("2024-05-01T11:59:00.000Z")
+            }
+        ]   
     }
   ];
   if (JSON.parse(localStorage.getItem("data")) == undefined) {
@@ -530,7 +687,7 @@ exports.calculateKpiScore = (kpi) => {
         const quantityScore = task.status !== 1 ? 0 : 100;
         const qualityScore = task.status !== 1 ? 0 : 20 * task.quality;
 
-        console.log((typeof task.date == 'object' ? task.date.toISOString().slice(0,10) : task.date.slice(0,10)) + 'T' + (task.end.length < 5 ? '0' + task.end : task.end) + ':00.000Z');
+        console.log(task);
         const due = new Date((typeof task.date == 'object' ? task.date.toISOString().slice(0,10) : task.date.slice(0,10)) + 'T' + (task.end.length < 5 ? '0' + task.end : task.end) + ':00.000Z');
         const completed = typeof task.completed == 'object' ? task.completed : new Date(task.completed);
         console.log(due, completed);

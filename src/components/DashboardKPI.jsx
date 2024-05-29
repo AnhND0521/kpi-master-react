@@ -5,6 +5,7 @@ import KPIProgressChart from './charts/KPIProgressChart';
 import { Link } from 'react-router-dom';
 import moment from 'moment/moment';
 import { calculateKpiScore } from '../utils/dataUtils';
+import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 
 const DashboardKPI = (props) => {
   const { kpi } = props;
@@ -14,7 +15,7 @@ const DashboardKPI = (props) => {
 
   return (
     <Card className='w-full rounded-md overflow-hidden'>
-      <CardBody className='flex justify-between bg-gray p-3'>
+      <CardBody className='flex justify-between bg-gray p-5'>
         <div className='flex flex-col items-start gap-3'>
           <Typography variant='h4' className='font-inter font-medium text-xl'>
             {kpi.name}
@@ -39,8 +40,18 @@ const DashboardKPI = (props) => {
             </Button>
           </Link>
         </div>
-        <KPIProgressChart
+        {/* <KPIProgressChart
           progress={score/100}
+        /> */}
+        
+        <Gauge width={150} height={150} value={Math.round(calculateKpiScore(kpi))} text={({value}) => `${value} %`}
+          sx={{
+            [`& .${gaugeClasses.valueText}`]: {
+              fontSize: 30,
+              transform: 'translate(0px, 0px)',
+            },
+          }}
+          cornerRadius={'50%'}
         />
       </CardBody>
     </Card>

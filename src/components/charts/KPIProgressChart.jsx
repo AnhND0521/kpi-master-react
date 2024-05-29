@@ -25,10 +25,10 @@ const KPIProgressChart = (props) => {
         series={[
           {
             data: [
-              { id: 0, value: 10 },
+              { id: 0, value: progress*100 },
             ],
-            innerRadius: width/2 - 10,
-            outerRadius: width/2,
+            innerRadius: width/3 - 10,
+            outerRadius: width/3,
             startAngle: 0,
             endAngle: 360 * progress
           },

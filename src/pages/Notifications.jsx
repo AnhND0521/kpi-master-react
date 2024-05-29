@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import { FunnelIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Wrapper from "../components/Wrapper";
+import PageHeader from "../components/PageHeader";
 
 const Notifications = () => {
     const [notifications, setNotifications] = useState([
@@ -80,11 +82,10 @@ const Notifications = () => {
     }
 
     return (
-        <div className="w-full">
-            <Header currentPage='Thông báo' />
-            <main className='flex flex-col gap-4 my-16 px-4 py-8 overflow-y-scroll'>
+        <Wrapper tab={3}>
+                <PageHeader label={'Thông báo'} />
                 <div className="flex justify-between">
-                    <Typography className="font-inter text-purple font-normal" onClick={markAllAsRead}>
+                    <Typography className="font-inter text-purple font-normal text-base" onClick={markAllAsRead}>
                         Đánh dấu tất cả là đã đọc
                     </Typography>
                     {/* <div className="flex items-center gap-2">
@@ -92,13 +93,13 @@ const Notifications = () => {
                         <Typography className="font-inter text-md">Lọc</Typography>
                     </div> */}
                 </div>
-                <div className="flex flex-col gap-4 mt-4">
+                <div className="flex flex-col gap-4 w-3/4">
                 { notifications.map(n => (
                     <Card key={n.id} className={`${n.read ? 'bg-[#E8DBFC]/[.3]' : 'bg-[#E8DBFC]/[.5]'} flex flex-col items-start`}>
-                        <div className={`absolute top-3 left-0 w-0.5 h-[4.8rem]`} style={{ backgroundColor: n.type === 0 ? 'orange' : 'red' }}></div>
-                        <CardBody className="p-4">
+                        <div className={`absolute top-3 left-0 w-0.5 h-[4.2rem]`} style={{ backgroundColor: n.type === 0 ? 'orange' : 'red' }}></div>
+                        <CardBody className="p-4 w-full cursor-pointer" onClick={(e) => { if (!e.target.id) navigate('/kpi/1/task/1.1'); }}>
                             <div className="flex justify-between mb-3">
-                                <Typography className={`text-left font-inter text-sm font-${n.read ? 'normal' : 'semibold'}`}>
+                                <Typography className={`text-left font-inter text-base font-${n.read ? 'normal' : 'semibold'}`}>
                                     {n.content}
                                 </Typography>
                                 <Typography className="w-20 text-right text-textGray font-inter text-sm">
@@ -106,16 +107,14 @@ const Notifications = () => {
                                 </Typography>
                             </div>
                             <div className="flex justify-start gap-5">
-                                <Typography className="text-left text-purple text-xs font-inter" onClick={() => markAsRead(n.id)}>Đánh dấu là đã đọc</Typography>
-                                <Typography className="text-left text-purple text-xs font-inter" onClick={() => markAsRead(n.id)}>Đánh dấu là đã hoàn thành</Typography>
+                                <Typography id="mark1" className="text-left text-purple text-sm font-inter cursor-pointer" onClick={() => markAsRead(n.id)}>Đánh dấu là đã đọc</Typography>
+                                <Typography id="mark2" className="text-left text-purple text-sm font-inter cursor-pointer" onClick={() => markAsRead(n.id)}>Đánh dấu là đã hoàn thành</Typography>
                             </div>
                         </CardBody>
                     </Card>
                 ))}
                 </div>
-            </main>
-            <Navbar active={2} />
-        </div>
+        </Wrapper>
     );
 }
 

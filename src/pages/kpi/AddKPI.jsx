@@ -7,12 +7,12 @@ import AddKPITasks from './AddKPITasks'
 import AddKPIStepIndicator from '../../components/AddKPIStepIndicator'
 import { getNextKpiId } from '../../utils/dataUtils'
 import moment from 'moment'
+import { Dialog, DialogBody, DialogHeader, Typography } from '@material-tailwind/react'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
-const AddKPI = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { state } = useLocation();
-  const step = searchParams.get('step');
-  const [tasks, setTasks] = useState([]);
+const AddKPI = ({open, setOpen}) => {
+  const [step, setStep] = useState(1);
+  const [kpi, setKpi] = useState();
 
   // const handleSubmit = (event) => {
   //   event.preventDefault();
@@ -35,17 +35,21 @@ const AddKPI = () => {
   // }
 
   return (
-    <div className='w-full'>
-      <Header currentPage='Thêm KPI' backDestination={step == 1 ? '/dashboard' : `/add-kpi?step=1`} />
-      <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
-        <AddKPIStepIndicator step={step} />
-        <div>
-          {step == 1 && <AddKPIInfo />}
-          {step == 2 && <AddKPITasks kpi={state.kpi} />}
-        </div>
-      </main>
-      <Navbar />
-    </div>
+    <Dialog open={open} handler={() => setOpen(!open)}>
+      <DialogHeader className='justify-between'>
+        <Typography variant='h5'>Tạo KPI</Typography>
+        <XMarkIcon className='w-5 cursor-pointer' onClick={() => { setOpen(false); } } />
+      </DialogHeader>
+      <DialogBody className='text-black px-6 py-6 h-[34rem] overflow-y-scroll'>
+        <main className='flex flex-col gap-4 p-4'>
+          <AddKPIStepIndicator step={step} />
+          <div className='mt-5'>
+            {step == 1 && <AddKPIInfo />}
+            {step == 2 && <AddKPITasks kpi={kpi} />}
+          </div>
+        </main>
+      </DialogBody>
+    </Dialog>
   )
 }
 

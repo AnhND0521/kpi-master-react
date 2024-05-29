@@ -20,7 +20,7 @@ const DateInput = (props) => {
           required={required}
         />
       </PopoverHandler>
-      <PopoverContent>
+      <PopoverContent className='z-[9999]'>
         <DayPicker
           mode="single"
           selected={value}

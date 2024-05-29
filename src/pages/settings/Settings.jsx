@@ -7,6 +7,8 @@ import avatar from '../../assets/avatar.png';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ConfirmDialog from "../../components/ConfirmDialog";
+import Wrapper from "../../components/Wrapper";
+import PageHeader from "../../components/PageHeader";
 
 const Settings = () => {
 
@@ -14,21 +16,15 @@ const Settings = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-full">
-            <Header currentPage='Cài đặt' />
-            <main className='flex flex-col gap-4 my-16 px-4 py-12 overflow-y-scroll'>
-                <Link to={'/settings/profile'}>
-                    <div className="flex flex-col items-center gap-2 mb-5">
-                        <img src={avatar} className="w-28 h-28 rounded-full"/>
-                        <div className="flex items-center justify-center gap-2 mt-2">
-                            <Typography className="font-inter text-xl font-medium">
-                                Nguyễn Anh Long
-                            </Typography>
-                            <ChevronRightIcon className="w-6"/>
-                        </div>
-                    </div>
-                </Link>
+        <div className="w-3/4">
+        <Wrapper tab={4}>
+                <PageHeader label={'Cài đặt'} />
 
+                <SettingsOption 
+                    icon={<UserCircleIcon className="w-8"/>} 
+                    optionName="Tài khoản"
+                    to='/settings/profile'
+                />
                 <SettingsOption 
                     icon={<ChartBarSquareIcon className="w-8"/>} 
                     optionName="Báo cáo" 
@@ -58,15 +54,13 @@ const Settings = () => {
                     optionName="Feedback"
                     to="/settings/feedback"
                 />
-                <div onClick={() => setOpenDialog(true)}>
+                <div onClick={() => setOpenDialog(true)} className="w-full">
                 <SettingsOption
                     icon={<ArrowRightEndOnRectangleIcon className="w-8"/>}
                     optionName="Đăng xuất"
                     control={<></>}
                 />
                 </div>
-            </main>
-            <Navbar active={3} />
 
             <ConfirmDialog 
                 message='Bạn có chắc muốn đăng xuất?' 
@@ -75,6 +69,7 @@ const Settings = () => {
                 handleCancel={() => setOpenDialog(false)}
                 handleConfirm={() => navigate('/')}
             />
+        </Wrapper>
         </div>
     );
 }

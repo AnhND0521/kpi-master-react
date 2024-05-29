@@ -51,7 +51,7 @@ const EditTask = () => {
         </Typography>
         <div className='flex flex-col gap-4 items-center'>
           <Input label='Tên nhiệm vụ' value={name} onChange={(event) => setName(event.target.value)} required />
-          <DateInput value={date} handleChange={setDate}/>
+          <DateInput value={date} handleChange={setDate} required/>
           <div className=" flex gap-2 w-full">
             <Input label='Bắt đầu' value={start} onChange={(event) => setStart(event.target.value)} required />
             <Input label='Kết thúc' value={end} onChange={(event) => setEnd(event.target.value)} required />

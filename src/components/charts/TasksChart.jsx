@@ -17,9 +17,9 @@ const TasksChart = (props) => {
     <Card className='w-full pb-4 rounded-md overflow-hidden' ref={chartCanvasRef}>
       <PieChart
         margin={{
-          left: width/4,
-          top: -12,
-          bottom: 12
+          left: width/6,
+          top: -40,
+          bottom: 0
         }}
         colors={["#6BCB77", "#FFD93D", "#FF6B6B"]}
         series={[
@@ -29,11 +29,11 @@ const TasksChart = (props) => {
               { id: 1, value: ongoing, label: `Cần làm\n(${ongoing})` },
               { id: 2, value: overdue, label: `Quá hạn\n(${overdue})` },
             ],
-            outerRadius: width/4
+            outerRadius: width/8
           },
         ]}
         width={width}
-        height={276}
+        height={250}
         slotProps={{
           legend: {
             direction: 'row',

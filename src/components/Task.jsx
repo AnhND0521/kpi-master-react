@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { saveTask } from '../utils/dataUtils';
 
 const Task = (props) => {
-  const { kpi, task } = props;
+  const { kpi, task, handleOpen } = props;
 
   const navigate = useNavigate();
   const handleChange = () => {
@@ -23,10 +23,10 @@ const Task = (props) => {
   }
 
   return (
-    <Card className='w-full rounded-md overflow-hidden'>
+    <Card className='w-full rounded-md overflow-hidden cursor-pointer' onClick={e => { if (!e.target.id) handleOpen() }}>
       <CardBody className='flex justify-between bg-gray p-3'>
         <div className='flex items-center gap-3'>
-          <input type='checkbox' className='w-6 h-6 accent-purple rounded-md' checked={task.status === 1} onChange={handleChange}/>
+          <input id='check' type='checkbox' className='w-6 h-6 accent-purple rounded-md cursor-pointer' checked={task.status === 1} onChange={handleChange}/>
           <div className='flex flex-col items-start gap-2'>
             <Typography variant='h4' className='font-inter font-medium text-base'>
               {task.name}
@@ -42,7 +42,7 @@ const Task = (props) => {
             </div>
           </div>
         </div>
-        <ChevronRightIcon className='w-8' onClick={() => navigate(`/kpi/${kpi.id}/task/${task.id}`)}/>
+        <ChevronRightIcon className='w-8' onClick={() => handleOpen()}/>
       </CardBody>
     </Card>
   )

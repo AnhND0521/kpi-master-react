@@ -1,96 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  HomeIcon, 
-  Cog6ToothIcon, 
-  CalendarIcon, 
-  BellIcon
-} from '@heroicons/react/24/outline';
-import { 
-  HomeIcon as HomeIconActive, 
-  Cog6ToothIcon as Cog6ToothIconActive, 
-  CalendarIcon as CalendarIconActive, 
-  BellIcon as BellIconActive
-} from '@heroicons/react/24/solid';
-import { Typography } from '@material-tailwind/react';
-import { Link } from 'react-router-dom';
+import NavItem from './NavItem';
 
 const Navbar = (props) => {
-  const [activeTab, setActiveTab] = useState(props.active ? props.active : 0);
+  const {tab} = props;
+  const [activeTab, setActiveTab] = useState(tab || 0);
+  console.log(tab);
 
   return (
-    <div className='fixed bottom-0 w-full h-16 flex grid grid-cols-4 bg-gray shadow-md'>
-      <Link to={'/dashboard'}>
-        <div
-          className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 0 && 'bg-pink'}`}
-          onClick={() => setActiveTab(0)}
-        >
-          {
-            activeTab === 0 ? 
-            <HomeIconActive  className='w-7 text-purple'/> : 
-            <HomeIcon  className='w-7 text-textGray'/>
-          }
-          <Typography 
-            variant='h6' 
-            className={`font-inter text-xs text-${activeTab === 0 ? 'purple' : 'textGray'}`}
-          >
-            Trang chủ
-          </Typography>
-        </div>
-      </Link>
-      <Link to={'/schedule'}>
-        <div
-          className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 1 && 'bg-pink'}`}
-          onClick={() => setActiveTab(1)}
-        >
-          {
-            activeTab === 1 ? 
-            <CalendarIconActive  className='w-7 text-purple'/> : 
-            <CalendarIcon  className='w-7 text-textGray'/>
-          }
-          <Typography 
-            variant='h6' 
-            className={`font-inter text-xs text-${activeTab === 1 ? 'purple' : 'textGray'}`}
-          >
-            Lịch trình
-          </Typography>
-        </div>
-      </Link>
-      <Link to={'/notifications'}>
-        <div
-          className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 2 && 'bg-pink'}`}
-          onClick={() => setActiveTab(2)}
-        >
-          {
-            activeTab === 2 ? 
-            <BellIconActive  className='w-7 text-purple'/> : 
-            <BellIcon  className='w-7 text-textGray'/>
-          }
-          <Typography 
-            variant='h6' 
-            className={`font-inter text-xs text-${activeTab === 2 ? 'purple' : 'textGray'}`}
-          >
-            Thông báo
-          </Typography>
-        </div>
-      </Link>
-      <Link to={'/settings'}>
-        <div
-          className={`flex flex-col items-center justify-center gap-1 w-full h-full p-2 ${activeTab === 3 && 'bg-pink'}`}
-          onClick={() => setActiveTab(3)}
-        >
-          {
-            activeTab === 3 ? 
-            <Cog6ToothIconActive  className='w-7 text-purple'/> : 
-            <Cog6ToothIcon  className='w-7 text-textGray'/>
-          }
-          <Typography 
-            variant='h6' 
-            className={`font-inter text-xs text-${activeTab === 3 ? 'purple' : 'textGray'}`}
-          >
-            Cài đặt
-          </Typography>
-        </div>
-      </Link>
+    <div className='fixed left-0 top-20 h-full w-60 flex flex-col bg-gray shadow-md py-5'>
+      {[0,1,2,3,4].map(i => (
+        <NavItem index={i} activeTab={activeTab} setActiveTab={setActiveTab} />
+      ))}
     </div>
   )
 }
