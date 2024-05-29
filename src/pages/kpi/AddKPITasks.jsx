@@ -5,12 +5,13 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import CornerButton from '../../components/CornerButton'
 import { Button, Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../../components/DateInput'
-import { findKpiById, getNextTaskId, saveKpi } from '../../utils/dataUtils.js'
+import { findKpiById, getCurrentKpis, getNextTaskId, getPastKpis, saveKpi } from '../../utils/dataUtils.js'
 import AddKPITask from '../../components/AddKPITask'
 import { parseDate } from '../../utils/dateShit.js'
 
 const AddKPITasks = (props) => {
-  const { kpi } = props;
+  const { kpi, setOpen, setCurrentKpis, setPastKpis } = props;
+  console.log(kpi);
   
   const [name, setName] = useState('');
   const [date, setDate] = useState('');
@@ -55,11 +56,13 @@ const AddKPITasks = (props) => {
   const handleSubmit = () => {
     kpi.tasks = tasks;
     saveKpi(kpi);
-    navigate('/dashboard');
+    setOpen(false);
+    setCurrentKpis(getCurrentKpis());
+    setPastKpis(getPastKpis());
   }
 
   return (
-    // <form onSubmit={handleSubmit}>
+    <>
       <div className='flex flex-col gap-4'>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Thêm nhiệm vụ
@@ -108,8 +111,8 @@ const AddKPITasks = (props) => {
             Thêm
           </Button>
         </form>
-        <Typography className='font-inter font-semibold text-lg self-start'>
-          Nhiệm vụ đã thêm
+        <Typography className='font-inter font-semibold text-lg self-start mt-4'>
+          Nhiệm vụ đã thêm ({tasks.length})
         </Typography>
         <div className='flex flex-col gap-4 items-center'>
           {tasks.map(task => 
@@ -134,12 +137,9 @@ const AddKPITasks = (props) => {
             />  
           )}
         </div>
-
-        <div onClick={handleSubmit}>
-          <CornerButton icon='finish' type='submit' />
-        </div>
       </div>
-    // </form>
+      <Button className='bg-purple w-full mt-10' onClick={handleSubmit}>Xong</Button>
+    </>
   )
 }
 

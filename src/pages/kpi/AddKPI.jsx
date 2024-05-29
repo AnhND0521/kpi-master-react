@@ -10,7 +10,7 @@ import moment from 'moment'
 import { Dialog, DialogBody, DialogHeader, Typography } from '@material-tailwind/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
-const AddKPI = ({open, setOpen}) => {
+const AddKPI = ({open, setOpen, setCurrentKpis, setPastKpis}) => {
   const [step, setStep] = useState(1);
   const [kpi, setKpi] = useState();
 
@@ -44,8 +44,8 @@ const AddKPI = ({open, setOpen}) => {
         <main className='flex flex-col gap-4 p-4'>
           <AddKPIStepIndicator step={step} />
           <div className='mt-5'>
-            {step == 1 && <AddKPIInfo />}
-            {step == 2 && <AddKPITasks kpi={kpi} />}
+            {step == 1 && <AddKPIInfo setKpi={setKpi} setStep={setStep} />}
+            {step == 2 && <AddKPITasks kpi={kpi} setOpen={setOpen} setCurrentKpis={setCurrentKpis} setPastKpis={setPastKpis} />}
           </div>
         </main>
       </DialogBody>

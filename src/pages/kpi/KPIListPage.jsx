@@ -11,15 +11,15 @@ import AddKPI from "./AddKPI";
 
 const KPIListPage = (props) => {
     const [activeTab, setActiveTab] = useState('upcoming');
-    const pastKpis = getPastKpis();
 
-    const [currentKpis, setKpis] = useState(getCurrentKpis());
+    const [currentKpis, setCurrentKpis] = useState(getCurrentKpis());
+    const [pastKpis, setPastKpis] = useState(getPastKpis());
 
     const [openAddKPI, setOpenAddKPI] = useState(false);
 
     const handleSync = () => {
       loadData();
-      setKpis(getCurrentKpis());
+      setCurrentKpis(getCurrentKpis());
     }
 
     return (
@@ -54,7 +54,7 @@ const KPIListPage = (props) => {
             <Typography variant="h5" className="font-medium mt-4">KPI đã kết thúc ({pastKpis.length})</Typography>
             <KPITable data={pastKpis} />
         </Wrapper>
-        <AddKPI open={openAddKPI} setOpen={setOpenAddKPI} />
+        <AddKPI open={openAddKPI} setOpen={setOpenAddKPI} setCurrentKpis={setCurrentKpis} setPastKpis={setPastKpis} />
         </div>
     );
 }

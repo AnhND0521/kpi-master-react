@@ -1,6 +1,7 @@
 import { Typography } from '@material-tailwind/react';
 import React from 'react'
 import step1 from '../assets/add-kpi-step-1.png'
+import step2 from '../assets/add-kpi-step-2.png'
 
 const AddKPIStepIndicator = (props) => {
   const { step } = props;
@@ -19,7 +20,7 @@ const AddKPIStepIndicator = (props) => {
             Thêm nhiệm vụ
           </Typography>
         </div> */}
-        <img src={step1} width='10px' />
+        <img src={step === 1 ? step1 : step2} />
       </div>
     </div>
     </>

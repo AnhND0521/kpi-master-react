@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import CornerButton from '../../components/CornerButton'
-import { Input, Option, Select, Typography } from '@material-tailwind/react'
+import { Button, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../../components/DateInput'
 import { parseDate } from '../../utils/dateShit'
 
-const AddKPIInfo = () => {
+const AddKPIInfo = ({setKpi, setStep}) => {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('');
   const [date, setDate] = useState('');
@@ -49,7 +49,8 @@ const AddKPIInfo = () => {
       }
     }
     console.log(kpi);
-    navigate('/add-kpi?step=2', { state: { kpi: kpi } });
+    setKpi(kpi);
+    setStep(2);
   }
 
   return (
@@ -57,7 +58,7 @@ const AddKPIInfo = () => {
       <Typography className='font-inter font-semibold text-lg self-start'>
         Thông tin KPI
       </Typography>
-      <div className='flex flex-col gap-4 items-center'>
+      <div className='flex flex-col gap-4 items-center mt-4'>
         <Input value={name} label='Tên KPI' onChange={event => setName(event.target.value)} required />
         <Input value={description} label='Mô tả' onChange={event => setDescription(event.target.value)}/>
         <DateInput value={date} handleChange={setDate} required />
@@ -95,7 +96,7 @@ const AddKPIInfo = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={quantity} className='w-12 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuantity(target.value)} />
+              <input type="number" value={quantity} className='w-14 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuantity(target.value)} />
               <Typography className='font-inter font-regular text-lg'>
                 / {totalWeight}
               </Typography>
@@ -114,7 +115,7 @@ const AddKPIInfo = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={quality} className='w-12 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuality(target.value)} />
+              <input type="number" value={quality} className='w-14 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuality(target.value)} />
               <Typography className='font-inter font-regular text-lg' >
                 / {totalWeight}
               </Typography>
@@ -133,14 +134,14 @@ const AddKPIInfo = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={time} onChange={({target}) => setTime(target.value)} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
+              <input type="number" value={time} onChange={({target}) => setTime(target.value)} className='w-14 h-8 px-2 border border-darkGray rounded-md' />
               <Typography className='font-inter font-regular text-lg'>
                 / {totalWeight}
               </Typography>
             </div>
           </div>
         </div>
-        <CornerButton icon='next' type='submit' />
+        <Button className='bg-purple w-full mt-10' type='submit'>Tiếp</Button>
     </form>
   )
 }

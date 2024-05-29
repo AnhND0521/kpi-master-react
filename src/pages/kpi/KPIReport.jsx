@@ -10,6 +10,7 @@ import moment from 'moment/moment';
 import KPITasksChart from '../../components/charts/KPITasksChart';
 import KPIEfficiencyChart from '../../components/charts/KPIEfficiencyChart';
 import KPIProgressOverTimeChart from '../../components/charts/KPIProgressOverTimeChart';
+import WeeklyFinishedTasksChart from '../../components/charts/WeeklyFinishedTasksChart';
 
 const KPIReport = ({kpiId, open, setOpen}) => {
   const id = kpiId;
@@ -94,9 +95,9 @@ const KPIReport = ({kpiId, open, setOpen}) => {
         </div>
         <div className='flex flex-col items-start gap-3 my-3'>
           <Typography variant='h5' color='blue-gray' className='font-inter font-regular font-medium'>
-            Số hoạt động gần đây
+            Hiệu suất gần đây
           </Typography>
-          <KPIEfficiencyChart />
+          <WeeklyFinishedTasksChart />
         </div>
       </main>
       </DialogBody>
