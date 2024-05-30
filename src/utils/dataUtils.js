@@ -687,17 +687,17 @@ exports.calculateKpiScore = (kpi) => {
         const quantityScore = task.status !== 1 ? 0 : 100;
         const qualityScore = task.status !== 1 ? 0 : 20 * task.quality;
 
-        console.log(task);
+        // console.log(task);
         const due = new Date((typeof task.date == 'object' ? task.date.toISOString().slice(0,10) : task.date.slice(0,10)) + 'T' + (task.end.length < 5 ? '0' + task.end : task.end) + ':00.000Z');
         const completed = typeof task.completed == 'object' ? task.completed : new Date(task.completed);
-        console.log(due, completed);
+        // console.log(due, completed);
         const timeScore = [
             0,
             100 + (due.getTime() - completed.getTime()) / (24*3600*1000) * 20,
             0 + (due.getTime() - new Date().getTime()) / (24*3600*1000) * 20
         ][task.status];
 
-        console.log(task.name, timeScore);
+        // console.log(task.name, timeScore);
         score += task.priority * (quantityWeight * quantityScore + qualityWeight * qualityScore + timeWeight * timeScore) / (quantityWeight + qualityWeight + timeWeight);
     }
 

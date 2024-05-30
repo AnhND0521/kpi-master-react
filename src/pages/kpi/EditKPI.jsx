@@ -55,7 +55,7 @@ const EditKPI = ({open, setOpen, kpi, setKPI}) => {
   return (
     <Dialog open={open} handler={() => setOpen(!open)}>
       <DialogHeader className='justify-between'>
-        <Typography variant='h5'>Tạo KPI</Typography>
+        <Typography variant='h5'>Chỉnh sửa KPI</Typography>
         <XMarkIcon className='w-5 cursor-pointer' onClick={() => { setOpen(false); } } />
       </DialogHeader>
       <DialogBody className='text-black px-6 py-6 pt-0 h-[34rem] overflow-y-scroll'>

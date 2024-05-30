@@ -8,6 +8,7 @@ import { Gauge } from "@mui/x-charts";
 import KPITable from "../../components/KPITable";
 import { ArrowDownOnSquareIcon, ArrowPathIcon, DocumentDuplicateIcon, PlusIcon } from "@heroicons/react/24/outline";
 import AddKPI from "./AddKPI";
+import ImportKPIDialog from "../../components/ImportKPIDialog";
 
 const KPIListPage = (props) => {
     const [activeTab, setActiveTab] = useState('upcoming');
@@ -16,6 +17,7 @@ const KPIListPage = (props) => {
     const [pastKpis, setPastKpis] = useState(getPastKpis());
 
     const [openAddKPI, setOpenAddKPI] = useState(false);
+    const [openImportKPI, setOpenImportKPI] = useState(false);
 
     const handleSync = () => {
       loadData();
@@ -36,7 +38,7 @@ const KPIListPage = (props) => {
                     <DocumentDuplicateIcon className="w-5" />
                     Thêm từ mẫu có sẵn
                 </Button>
-                <Button className="bg-purple w-56 flex gap-2 justify-center items-center">
+                <Button className="bg-purple w-56 flex gap-2 justify-center items-center" onClick={() => setOpenImportKPI(true)}>
                     <ArrowDownOnSquareIcon className="w-5" />
                     Nhập từ bên ngoài
                 </Button>
@@ -55,6 +57,7 @@ const KPIListPage = (props) => {
             <KPITable data={pastKpis} />
         </Wrapper>
         <AddKPI open={openAddKPI} setOpen={setOpenAddKPI} setCurrentKpis={setCurrentKpis} setPastKpis={setPastKpis} />
+        <ImportKPIDialog open={openImportKPI} setOpen={setOpenImportKPI} setCurrentKpis={setCurrentKpis} />
         </div>
     );
 }
