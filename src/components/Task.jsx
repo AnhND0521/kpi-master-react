@@ -37,7 +37,7 @@ const Task = (props) => {
                 {moment(task.date).format('DD/MM/YYYY')}
               </Typography>
               <Typography className='font-inter font-medium text-sm ml-2'>
-                {task.start}-{task.end}
+                {task.start} - {task.end}
               </Typography>
             </div>
           </div>

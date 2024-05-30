@@ -20,6 +20,9 @@ const TaskDetails = ({kpi, task, setTask, open, setOpen}) => {
   // const kpi = findKpiById(id);
   // const task = findTaskById(id, taskId);
   const [rated, setRated] = useState(5);
+  if (task && task.start.length < 5) {
+    task.start = '0' + task.start;
+  }
 
   const [ openDialog, setOpenDialog ] = useState(false);
 
@@ -140,8 +143,8 @@ const TaskDetails = ({kpi, task, setTask, open, setOpen}) => {
           <Input label='Tên nhiệm vụ' value={task?.name} onChange={(event) => setTask({...task, name: event.target.value})} required />
           <DateInput value={task?.date} handleChange={(date) => setTask({...task, date: date})}/>
           <div className=" flex gap-2 w-full">
-            <Input label='Bắt đầu' value={task?.start} onChange={(event) => setTask({...task, start: event.target.value})} required />
-            <Input label='Kết thúc' value={task?.end} onChange={(event) => setTask({...task, end: event.target.value})}  required />
+            <Input label='Bắt đầu' type='time' value={task?.start} onChange={(event) => setTask({...task, start: event.target.value})} required />
+            <Input label='Kết thúc' type='time' value={task?.end} onChange={(event) => setTask({...task, end: event.target.value})}  required />
           </div>
           <Select value={task?.priority} label='Ưu tiên' onChange={(val) => setTask({...task, priority: val})} >
             <Option value={1}>Thấp</Option>

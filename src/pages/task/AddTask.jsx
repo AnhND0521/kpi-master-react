@@ -14,6 +14,7 @@ import Wrapper from '../../components/Wrapper';
 import PageHeader from '../../components/PageHeader';
 import BackButton from '../../components/BackButton';
 import DateInput from '../../components/DateInput';
+import TimeInput from 'react-time-picker/dist/TimeInput';
 
 const AddTask = ({kpi, open, setOpen}) => {
   const id = kpi.id;
@@ -81,8 +82,8 @@ const AddTask = ({kpi, open, setOpen}) => {
         <Input label='Tên nhiệm vụ' value={name} onChange={(event) => setName(event.target.value)} required />
           <DateInput value={date} handleChange={setDate} required/>
           <div className=" flex gap-2 w-full">
-            <Input label='Bắt đầu' value={start} onChange={(event) => setStart(event.target.value)} required />
-            <Input label='Kết thúc' value={end} onChange={(event) => setEnd(event.target.value)} required />
+            <Input label='Bắt đầu' type='time' value={start} onChange={(event) => setStart(event.target.value)} required />
+            <Input label='Kết thúc' type='time' value={end} onChange={(event) => setEnd(event.target.value)} required />
           </div>
           <Select value={priority} label='Ưu tiên' onChange={(val) => setPriority(val)}>
             <Option value={1}>Thấp</Option>
