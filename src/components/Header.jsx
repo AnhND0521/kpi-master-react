@@ -26,7 +26,7 @@ const Header = (props) => {
           className: "hidden",
         }} icon={<MagnifyingGlassIcon className='w-5'/>}/>
       </div>
-      <div className='flex items-center justify-right gap-12 text-white pe-5'>
+      <div className='flex items-center justify-right gap-12 text-white pe-8'>
         <Typography className='text-base font-medium cursor-pointer'>Trang chủ</Typography>
         <Typography className='text-base font-medium cursor-pointer'>Về chúng tôi</Typography>
         <Typography className='text-base font-medium cursor-pointer'>Liên hệ</Typography>

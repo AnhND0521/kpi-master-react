@@ -2,11 +2,13 @@ import { ChevronRightIcon } from '@heroicons/react/24/solid';
 import { Card, CardBody, Typography } from '@material-tailwind/react';
 import React from 'react'
 import { findKpiById } from '../../utils/dataUtils';
+import { Link } from 'react-router-dom';
 
 const Task = (props) => {
   const { name, kpi, startTime, endTime } = props;
   return (
-    <Card className='w-full min-h-16'>
+    <Link to={`/kpi/${kpi}`} className='w-full'>
+    <Card className='h-20'>
       <CardBody className='h-full flex items-center justify-between p-3'>
         <div className='w-12 flex flex-col items-center mr-4'>
           <Typography className='w-full text-sm'>
@@ -31,6 +33,7 @@ const Task = (props) => {
         <ChevronRightIcon className='w-8'/>
       </CardBody>
     </Card>
+    </Link>
   )
 }
 
