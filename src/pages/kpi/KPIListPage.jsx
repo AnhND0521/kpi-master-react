@@ -1,4 +1,4 @@
-import { Tab, TabPanel, Tabs, TabsBody, TabsHeader, Typography, Card, Button } from "@material-tailwind/react";
+import { Tab, TabPanel, Tabs, TabsBody, TabsHeader, Typography, Card, Button, Breadcrumbs } from "@material-tailwind/react";
 import PageHeader from "../../components/PageHeader";
 import Wrapper from "../../components/Wrapper";
 import { useState } from "react";
@@ -10,6 +10,8 @@ import { ArrowDownOnSquareIcon, ArrowPathIcon, DocumentDuplicateIcon, PlusIcon }
 import AddKPI from "./AddKPI";
 import ImportKPIDialog from "../../components/ImportKPIDialog";
 import TemplateDialog from "../../components/TemplateDialog";
+import BackButton from "../../components/BackButton";
+import { Link } from "react-router-dom";
 
 const KPIListPage = (props) => {
     const [activeTab, setActiveTab] = useState('upcoming');
@@ -29,6 +31,24 @@ const KPIListPage = (props) => {
     return (
         <div className="w-4/5">
         <Wrapper tab={1}>
+            <div className='flex gap-4 items-center'>
+                <BackButton to='/dashboard'/>
+                <Breadcrumbs>
+                    <Link to="/dashboard" className="opacity-60">
+                        <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        >
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                        </svg>
+                    </Link>
+                    <Link to="#">
+                        KPI của bạn
+                    </Link>
+                </Breadcrumbs>
+            </div>
             <PageHeader label={'KPI của bạn'} />
 
             <div className="flex justify-start gap-4">

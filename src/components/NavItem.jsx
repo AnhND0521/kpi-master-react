@@ -7,7 +7,7 @@ const NavItem = (props) => {
     return (
         <Link to={['/dashboard', '/kpi-list', '/schedule', '/notifications', '/settings'][index]}>
             <div
-            className={`grid grid-cols-4 justify-start items-center gap-1 w-full h-16 py-2 px-5 ${activeTab === index && 'bg-pink'}`}
+            className={`grid grid-cols-4 justify-start items-center gap-1 w-full h-16 py-2 px-5 ${activeTab === index && 'bg-pink'} hover:bg-pink`}
             onClick={() => setActiveTab(index)}
             >
             <div className="w-12">

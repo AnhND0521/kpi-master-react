@@ -27,6 +27,17 @@ const Dashboard = () => {
   return (
     <Wrapper>
         <div className='w-full flex flex-col gap-6'>
+            <div className='w-full flex items-center justify-between'>
+              <Typography variant='h5' className='font-inter text-lg font-semibold'>
+                Lịch trình
+              </Typography>
+              <Link to='/schedule'>
+                <Typography variant='h6' className='flex font-inter text-md font-semibold text-purple'>
+                  Chi tiết
+                  <ChevronRightIcon className='w-4' />
+                </Typography>
+              </Link>
+            </div>
           <CalendarHorizontal />
           <Warning />
         </div>
