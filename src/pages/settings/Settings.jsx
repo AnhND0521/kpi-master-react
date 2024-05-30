@@ -25,14 +25,14 @@ const Settings = () => {
                     optionName="Tài khoản"
                     to='/settings/profile'
                 />
-                <SettingsOption 
+                {/* <SettingsOption 
                     icon={<ChartBarSquareIcon className="w-8"/>} 
                     optionName="Báo cáo" 
                     to='/statistics'
-                />
+                /> */}
                 <SettingsOption
                     icon={<PaintBrushIcon className="w-8"/>}
-                    optionName="Theme"
+                    optionName="Chủ đề"
                     to="/settings/theme"
                 />
                 <SettingsOption

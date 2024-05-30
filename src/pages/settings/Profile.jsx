@@ -1,14 +1,26 @@
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import avatar from '../../assets/avatar.png';
-import { Button, Card, Input, Typography } from "@material-tailwind/react";
+import { Breadcrumbs, Button, Card, Input, Typography } from "@material-tailwind/react";
 import CornerButton from "../../components/CornerButton";
 import { Link } from "react-router-dom";
 import Wrapper from "../../components/Wrapper";
+import BackButton from "../../components/BackButton";
 
 const Profile = () => {
     return (
         <Wrapper tab={4}>
+                <div className='flex gap-4 items-center'>
+                    <BackButton to='/settings'/>
+                    <Breadcrumbs>
+                        <Link to="/settings" className="opacity-60">
+                            Cài đặt
+                        </Link>
+                        <Link to="#">
+                            Tài khoản
+                        </Link>
+                    </Breadcrumbs>
+                </div>
                 <div className="flex items-start justify-start gap-12 mt-8">
                 <Card className="flex flex-col items-center w-96 p-4">
                     <img src={avatar} className="w-48 h-48 rounded-full mb-8"/>

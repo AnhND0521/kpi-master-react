@@ -6,7 +6,7 @@ const SettingsOption = (props) => {
     const { icon, optionName, control, to } = props;
     return (
         <Link to={to} className="w-full">
-            <Card className="bg-[#E8DBFC]/[.3]">
+            <Card className="bg-[#E8DBFC]/[.3] hover:bg-[#E8DBFD]/[0.5]">
                 <CardBody className="flex justify-start items-center p-2 gap-2">
                     {icon}
                     <div className="flex justify-between items-center w-full">

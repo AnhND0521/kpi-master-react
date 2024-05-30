@@ -1,23 +1,48 @@
-import { Button, Input, Textarea, Typography } from "@material-tailwind/react";
+import { Breadcrumbs, Button, Input, Textarea, Typography } from "@material-tailwind/react";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
+import Wrapper from "../../components/Wrapper";
+import PageHeader from "../../components/PageHeader";
+import BackButton from "../../components/BackButton";
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import MessageDialog from "../../components/MessageDialog";
 
 const Feedback = () => {
+    const [notWorking, setNotWorking] = useState(false);
+    const [notRepeating, setNotRepeating] = useState(false);
+    const [notReminding, setNotReminding] = useState(false);
+    const [exception, setException] = useState(false);
+    const [other, setOther] = useState(false);
+
+    const [openDialog, setOpenDialog] = useState(false);
+
+    const navigate = useNavigate();
+
     return (
-        <div className="w-full">
-            <Header currentPage='Feedback' backDestination='/settings' />
-            <main className='flex flex-col items-start gap-6 my-16 px-4 py-8 overflow-y-scroll'>
-                <Typography variant="h5">Để lại phản hồi của bạn</Typography>
+        <Wrapper tab={4}>
+            <div className="flex flex-col gap-6 items-start w-2/3">
+                <div className='flex gap-4 items-center'>
+                    <BackButton to='/settings'/>
+                    <Breadcrumbs>
+                        <Link to="/settings" className="opacity-60">
+                            Cài đặt
+                        </Link>
+                        <Link to="#">
+                            Phản hồi
+                        </Link>
+                    </Breadcrumbs>
+                </div>
+
+                <PageHeader label={'Để lại phản hồi của bạn'} />
                 
                 <div className="flex flex-col gap-2">
                     <div className="flex justify-start gap-2">
-                        <Button variant='outlined' className="border-indigo-500 text-indigo-500 p-2">Không hoạt động</Button>
-                        <Button variant='outlined' className="border-indigo-500 text-indigo-500 p-2">Không lặp lại</Button>
-                        <Button variant='outlined' className="border-indigo-500 text-indigo-500 p-2">Không nhắc nhở</Button>
-                    </div>
-                    <div className="flex justify-start gap-2">
-                        <Button variant='outlined' className="border-indigo-500 text-indigo-500 p-2">Sự cố và lỗi</Button>
-                        <Button variant='outlined' className="border-indigo-500 text-indigo-500 p-2">Khác</Button>
+                        <Button variant={notWorking ? 'solid' : 'outlined'} className={`border-indigo-500 ${notWorking ? 'text-white bg-purple' : 'text-indigo-500'} p-2`} onClick={() => setNotWorking(!notWorking)}>Không hoạt động</Button>
+                        <Button variant={notRepeating ? 'solid' : 'outlined'} className={`border-indigo-500 ${notRepeating ? 'text-white bg-purple' : 'text-indigo-500'} p-2`} onClick={() => setNotRepeating(!notRepeating)}>Không lặp lại</Button>
+                        <Button variant={notReminding ? 'solid' : 'outlined'} className={`border-indigo-500 ${notReminding ? 'text-white bg-purple' : 'text-indigo-500'} p-2`} onClick={() => setNotReminding(!notReminding)}>Không nhắc nhở</Button>
+                        <Button variant={exception ? 'solid' : 'outlined'} className={`border-indigo-500 ${exception ? 'text-white bg-purple' : 'text-indigo-500'} p-2`} onClick={() => setException(!exception)}>Sự cố và lỗi</Button>
+                        <Button variant={other ? 'solid' : 'outlined'} className={`border-indigo-500 ${other ? 'text-white bg-purple' : 'text-indigo-500'} p-2`} onClick={() => setOther(!other)}>Khác</Button>
                     </div>
                 </div>
 
@@ -39,10 +64,12 @@ const Feedback = () => {
                     </div> 
                 </div>
 
-                <Button variant="filled" className="bg-purple w-full">Gửi phản hồi</Button>
-            </main>
-            <Navbar active={3} />
-        </div>
+                <Button variant="filled" className="bg-purple w-full" onClick={() => setOpenDialog(true)}>Gửi phản hồi</Button>
+
+            </div>
+
+            <MessageDialog message={'Phản hồi của bạn đã được gửi thành công!'} open={openDialog} handleOpen={setOpenDialog} handleConfirm={() => { setOpenDialog(false); navigate('/settings'); }} />
+        </Wrapper>
     );
 }
 

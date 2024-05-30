@@ -1,7 +1,7 @@
 import { Button, Dialog, DialogBody, DialogFooter, DialogHeader, Typography } from "@material-tailwind/react";
 
-const ConfirmDialog = (props) => {
-    const { message, open, handleOpen, handleCancel, handleConfirm } = props;
+const MessageDialog = (props) => {
+    const { message, open, handleOpen, handleConfirm } = props;
 
     return (
       <Dialog open={open} handler={handleOpen}>
@@ -9,20 +9,12 @@ const ConfirmDialog = (props) => {
             <Typography className="text-lg font-inter font-medium">{ message }</Typography>
         </DialogHeader>
         <DialogFooter>
-          <Button
-            variant="text"
-            color="red"
-            onClick={handleCancel}
-            className="mr-1"
-          >
-            <span>Hủy</span>
-          </Button>
           <Button variant="gradient" className="bg-purple" onClick={handleConfirm}>
-            <span>Xác nhận</span>
+            <span>OK</span>
           </Button>
         </DialogFooter>
       </Dialog>
     );
 }
 
-export default ConfirmDialog;
+export default MessageDialog;

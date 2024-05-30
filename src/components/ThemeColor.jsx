@@ -1,9 +1,9 @@
 import { CheckIcon } from "@heroicons/react/24/outline";
 
 const ThemeColor = (props) => {
-    const { value, selected } = props;
+    const { value, selected, handleSelect } = props;
     return (
-        <div className="relative">
+        <div className="relative cursor-pointer" onClick={handleSelect}>
             <div className='rounded-lg w-16 h-16' style={{
                 backgroundColor: value
             }}></div>

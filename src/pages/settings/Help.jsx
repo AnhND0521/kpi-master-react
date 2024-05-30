@@ -1,15 +1,30 @@
-import { Card, CardBody, Input, Typography } from "@material-tailwind/react";
+import { Breadcrumbs, Card, CardBody, Input, Typography } from "@material-tailwind/react";
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
 import { ArrowPathIcon, BellAlertIcon, ChartBarIcon, ClipboardDocumentIcon, CloudArrowDownIcon, EnvelopeIcon, MagnifyingGlassIcon, QuestionMarkCircleIcon, QueueListIcon } from "@heroicons/react/24/outline";
 import HelpItem from "../../components/HelpItem";
 import SettingsOption from "../../components/SettingsOption";
+import Wrapper from "../../components/Wrapper";
+import PageHeader from "../../components/PageHeader";
+import BackButton from "../../components/BackButton";
+import { Link } from "react-router-dom";
 
 const Help = () => {
     return (
-        <div className="w-full">
-            <Header currentPage='Trợ giúp' backDestination='/settings' />
-            <main className='flex flex-col items-start gap-4 my-16 px-4 py-8 overflow-y-scroll'>
+        <Wrapper tab={4}>
+            <div className="flex flex-col gap-6 items-start w-2/3">
+                <div className='flex gap-4 items-center'>
+                    <BackButton to='/settings'/>
+                    <Breadcrumbs>
+                        <Link to="/settings" className="opacity-60">
+                            Cài đặt
+                        </Link>
+                        <Link to="#">
+                            Trợ giúp
+                        </Link>
+                    </Breadcrumbs>
+                </div>
+                <PageHeader label={"Trợ giúp"} />
                 <Typography variant="h5">Xin chào, bạn cần giúp gì?</Typography>
                 <Input color="indigo" label="Tìm kiếm" icon={<MagnifyingGlassIcon className="w-6"/>} />
                 
@@ -27,9 +42,8 @@ const Help = () => {
                     <SettingsOption icon={<QuestionMarkCircleIcon className="w-6"/>} optionName="Câu hỏi thường gặp" />
                     <SettingsOption icon={<EnvelopeIcon className="w-6"/>} optionName="Liên hệ với chúng tôi" />
                 </div>
-            </main>
-            <Navbar active={3} />
-        </div>
+            </div>
+        </Wrapper>
     );
 }
 
