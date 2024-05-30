@@ -84,9 +84,9 @@ const TaskDetails = ({kpi, task, setTask, open, setOpen}) => {
           <div className='flex items-center justify-start gap-10'>
             <PageHeader label={'Nhiệm vụ: ' + task?.name} />
             <div className='flex gap-2'>
-              <Link to={`/kpi/${id}/task/${task?.id}/edit`}>
+              {/* <Link to={`/kpi/${id}/task/${task?.id}/edit`}>
                   <PencilIcon className='w-6'/>
-              </Link>
+              </Link> */}
               <TrashIcon className='w-6 cursor-pointer' onClick={() => setOpenDialog(true)}/>
             </div>
           </div>
@@ -200,7 +200,7 @@ const TaskDetails = ({kpi, task, setTask, open, setOpen}) => {
             {rated}/5
           </div>
         </>}
-        <Button className='bg-purple w-full' type='submit'>Lưu</Button>
+        { setTask && <Button className='bg-purple w-full' type='submit'>Lưu</Button> }
       </form>
 
       <ConfirmDialog 
