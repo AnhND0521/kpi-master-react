@@ -3,14 +3,13 @@ import Header from '../../components/Header'
 import Navbar from '../../components/Navbar'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import CornerButton from '../../components/CornerButton'
-import { Input, Option, Select, Typography } from '@material-tailwind/react'
+import { Button, Dialog, DialogBody, DialogHeader, Input, Option, Select, Typography } from '@material-tailwind/react'
 import DateInput from '../../components/DateInput'
 import moment from 'moment/moment'
 import { findKpiById, saveKpi } from '../../utils/dataUtils'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
-const EditKPI = () => {
-  const { id } = useParams();
-  const kpi = findKpiById(id);
+const EditKPI = ({open, setOpen, kpi, setKPI}) => {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -24,7 +23,8 @@ const EditKPI = () => {
     kpi.weights.time = time;
     console.log(kpi);
     saveKpi(kpi);
-    navigate(`/kpi/${id}`);
+    setKPI(kpi);
+    setOpen(false);
   }
 
   const [ name, setName ] = useState(kpi.name);
@@ -53,14 +53,18 @@ const EditKPI = () => {
   }
 
   return (
-    <div className='w-full'>
-      <Header currentPage='Chỉnh sửa KPI' backDestination='/kpi/1' />
+    <Dialog open={open} handler={() => setOpen(!open)}>
+      <DialogHeader className='justify-between'>
+        <Typography variant='h5'>Tạo KPI</Typography>
+        <XMarkIcon className='w-5 cursor-pointer' onClick={() => { setOpen(false); } } />
+      </DialogHeader>
+      <DialogBody className='text-black px-6 py-6 pt-0 h-[34rem] overflow-y-scroll'>
       <form onSubmit={handleSubmit}>
-      <main className='flex flex-col gap-4 my-16 p-4 overflow-y-scroll'>
+      <main className='flex flex-col gap-4 p-4'>
         <Typography className='font-inter font-semibold text-lg self-start'>
           Chỉnh sửa KPI
         </Typography>
-        <div className='flex flex-col gap-4 items-center'>
+        <div className='flex flex-col gap-4 items-center mt-4'>
           <Input label='Tên KPI' value={name} required onChange={({target}) => setName(target.value)} />
           <Input label='Mô tả' value={description || ''} onChange={({target}) => setDescription(target.value)} />
           <DateInput value={due} handleChange={setDue}/>
@@ -105,7 +109,7 @@ const EditKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={quantity} className='w-12 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuantity(target.value)} />
+              <input type="number" value={quantity} className='w-16 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuantity(target.value)} />
               <Typography className='font-inter font-regular text-lg'>
                 / {totalWeight}
               </Typography>
@@ -124,7 +128,7 @@ const EditKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={quality} className='w-12 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuality(target.value)} />
+              <input type="number" value={quality} className='w-16 h-8 px-2 border border-darkGray rounded-md' onChange={({target}) => setQuality(target.value)} />
               <Typography className='font-inter font-regular text-lg' >
                 / {totalWeight}
               </Typography>
@@ -143,18 +147,18 @@ const EditKPI = () => {
               </div>
             </div>
             <div className='flex justify-start gap-1 items-center w-1/3'>
-              <input type="number" value={time} onChange={({target}) => setTime(target.value)} className='w-12 h-8 px-2 border border-darkGray rounded-md' />
+              <input type="number" value={time} onChange={({target}) => setTime(target.value)} className='w-16 h-8 px-2 border border-darkGray rounded-md' />
               <Typography className='font-inter font-regular text-lg'>
                 / {totalWeight}
               </Typography>
             </div>
           </div>
         </div>
-        <CornerButton icon='finish' type='submit' />
+        <Button className='bg-purple w-full mt-10' type='submit'>Lưu</Button> 
       </main>
       </form>
-      <Navbar />
-    </div>
+    </DialogBody>
+    </Dialog>
   )
 }
 

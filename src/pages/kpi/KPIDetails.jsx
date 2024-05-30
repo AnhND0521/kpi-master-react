@@ -18,6 +18,7 @@ import BackButton from '../../components/BackButton';
 import KPIReport from './KPIReport';
 import TaskDetails from '../task/TaskDetails';
 import AddTask from '../task/AddTask';
+import EditKPI from './EditKPI';
 
 const KPIDetails = () => {
   const { id } = useParams();
@@ -31,12 +32,13 @@ const KPIDetails = () => {
   const [ openDeleteDialog, setOpenDeleteDialog ] = useState(false);
   const [ openReport, setOpenReport ] = useState(false);
   const [ openAddTask, setOpenAddTask ] = useState(false);
+  const [ openEditKPI, setOpenEditKPI ] = useState(false);
 
   const navigate = useNavigate();
   
   const handleDelete = () => {
     deleteKpi(kpi.id);
-    navigate('/dashboard');
+    navigate('/kpi-list');
   }
 
   const [ task, setTask ] = useState();
@@ -58,10 +60,8 @@ const KPIDetails = () => {
         <div className='w-full flex justify-start gap-10 items-center'>
           <PageHeader label={'KPI: ' + kpi.name} />
           <div className='flex items-center gap-2'>
-            <Link to={`/kpi/${id}/edit`} >
-                <PencilIcon className='w-6'/>
-            </Link>
-            <TrashIcon className='w-6' onClick={() => setOpenDeleteDialog(true)}/>
+            <PencilIcon className='w-6 cursor-pointer' onClick={() => setOpenEditKPI(true)}/>
+            <TrashIcon className='w-6 cursor-pointer' onClick={() => setOpenDeleteDialog(true)}/>
           </div>
         </div>
         <div className='min-h-36 flex items-start justify-between'>
@@ -174,6 +174,8 @@ const KPIDetails = () => {
       <KPIReport kpiId={id} open={openReport} setOpen={setOpenReport} />
 
       <AddTask open={openAddTask} setOpen={setOpenAddTask} kpi={kpi} />
+
+      <EditKPI open={openEditKPI} setOpen={setOpenEditKPI} kpi={kpi} setKPI={setKpi} />
     </Wrapper>
   )
 }

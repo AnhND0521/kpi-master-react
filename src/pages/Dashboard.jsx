@@ -67,10 +67,13 @@ const Dashboard = () => {
               <Typography variant='h5' className='font-inter text-lg font-semibold'>
                 KPI của bạn
               </Typography>
-              <Typography variant='h6' className='flex font-inter text-md font-semibold text-purple'>
-                Chi tiết
-                <ChevronRightIcon className='w-4' />
-              </Typography>
+              <Link to={'/kpi-list'}>
+                <Typography variant='h6' className='flex font-inter text-md font-semibold text-purple'>
+                  Chi tiết
+                  <ChevronRightIcon className='w-4' />
+                </Typography>
+              </Link>
+              
               {/* <div className='flex items-center gap-2' onClick={handleSync}>
                 <ArrowPathIcon className='w-6'/>
                 <Typography className='text-sm font-normal font-regular font-inter'>Đồng bộ</Typography>
