@@ -10,6 +10,7 @@ module.exports = withMT({
     colors: {
       purple: '#7E56DA',
       darkPurple: '#2C0781',
+      lightBlue: '#F9F5FF',
       blue: '#87cefa',
       textBlue: '#2F65E1',
       pink: '#F8E4FF',

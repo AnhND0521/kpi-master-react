@@ -9,6 +9,7 @@ import KPITable from "../../components/KPITable";
 import { ArrowDownOnSquareIcon, ArrowPathIcon, DocumentDuplicateIcon, PlusIcon } from "@heroicons/react/24/outline";
 import AddKPI from "./AddKPI";
 import ImportKPIDialog from "../../components/ImportKPIDialog";
+import TemplateDialog from "../../components/TemplateDialog";
 
 const KPIListPage = (props) => {
     const [activeTab, setActiveTab] = useState('upcoming');
@@ -18,6 +19,7 @@ const KPIListPage = (props) => {
 
     const [openAddKPI, setOpenAddKPI] = useState(false);
     const [openImportKPI, setOpenImportKPI] = useState(false);
+    const [openKPITemplate, setOpenKPITemplate] = useState(false);
 
     const handleSync = () => {
       loadData();
@@ -34,7 +36,7 @@ const KPIListPage = (props) => {
                     <PlusIcon className="w-5" />
                     Tạo KPI mới
                 </Button>
-                <Button className="bg-purple w-56 flex gap-2 justify-center items-center">
+                <Button className="bg-purple w-56 flex gap-2 justify-center items-center" onClick={() => setOpenKPITemplate(true)}>
                     <DocumentDuplicateIcon className="w-5" />
                     Thêm từ mẫu có sẵn
                 </Button>
@@ -57,6 +59,7 @@ const KPIListPage = (props) => {
             <KPITable data={pastKpis} />
         </Wrapper>
         <AddKPI open={openAddKPI} setOpen={setOpenAddKPI} setCurrentKpis={setCurrentKpis} setPastKpis={setPastKpis} />
+        <TemplateDialog open={openKPITemplate} setOpen={setOpenKPITemplate} setCurrentKpis={setCurrentKpis} />
         <ImportKPIDialog open={openImportKPI} setOpen={setOpenImportKPI} setCurrentKpis={setCurrentKpis} />
         </div>
     );
