@@ -11,12 +11,16 @@ import fpt from '../assets/fpt.png';
 import screenshot from '../assets/screenshot.png';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
+import Login from './auth/Login';
 
 const LandingPage = () => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  // const [isDrawerOpen, setIsDrawerOpen] = useState(false);
  
-  const openDrawer = () => setIsDrawerOpen(true);
-  const closeDrawer = () => setIsDrawerOpen(false);
+  // const openDrawer = () => setIsDrawerOpen(true);
+  // const closeDrawer = () => setIsDrawerOpen(false);
+
+  const [openLogin, setOpenLogin] = useState(false);
+  const [openSignUp, setOpenSignUp] = useState(false);
 
   return (
     <div className='w-full h-full'>
@@ -97,7 +101,7 @@ const LandingPage = () => {
           <div className='flex flex-col gap-16 items-start w-1/2'>
             <Typography variant='h2' className='text-[#2F65E1] text-left'>Làm chủ cuộc sống bằng việc quản lý nhiệm vụ cá nhân một cách hệ thống</Typography>
             <Typography variant='h4' className='text-[#2F65E1] text-left font-medium'>Giúp tổ chức, theo dõi và thúc đẩy công việc của bạn một cách hiệu quả</Typography>
-            <Button className='bg-purple text-lg px-20 py-4'>Bắt đầu ngay</Button>
+            <Button className='bg-purple text-lg px-20 py-4' onClick={() => setOpenLogin(true)}>Bắt đầu ngay</Button>
             <div className='flex gap-12 items-center w-full justify-start'>
               <Typography className='text-lg font-medium text-[#2F65E1]'>Hỗ trợ đồng bộ với</Typography>
               <img src={hust} className='w-8'/>
@@ -136,6 +140,7 @@ const LandingPage = () => {
           </li>
         </ul>
       </footer> */}
+      <Login open={openLogin} setOpen={setOpenLogin} />
     </div>
   )
 }
