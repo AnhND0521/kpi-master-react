@@ -70,7 +70,10 @@ const AddKPIInfo = ({setKpi, setStep}) => {
           <Option value={4}>Hàng năm</Option>
         </Select>
       </div>
-      <div className='grid grid-cols-3 grid-rows-4 gap-y-1.5 mt-5'>
+      <Typography className='text-sm text-normal text-black mt-8 w-full text-left opacity-80'>
+            Hãy chọn trọng số cho từng khía cạnh mà bạn muốn đưa vào công thức tính KPI
+      </Typography>
+      <div className='grid grid-cols-3 grid-rows-4 gap-y-1.5'>
           <div className='col-span-3 flex items-center'>
             <div className='flex justify-start w-2/3'>
               <Typography className='font-inter font-semibold text-md'>
