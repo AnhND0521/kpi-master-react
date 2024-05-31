@@ -23,22 +23,22 @@ const Login = ({open, setOpen}) => {
         <Input label='Email' />
         <Input label='Mật khẩu' />
       </div>
-      <Link to='/forgot-password'>
-        <Typography variant='paragraph' className='text-textBlue'>
+      {/* <Link to='/forgot-password'> */}
+        <Typography variant='paragraph' className='text-textBlue cursor-pointer'>
           Quên mật khẩu?
         </Typography>
-      </Link>
+      {/* </Link> */}
       <div className='w-full flex flex-col items-center gap-3'>
         <Link to='/dashboard' className='w-full'>
           <Button variant='filled' className='w-full bg-purple text-sm'>
             Đăng nhập
           </Button>
         </Link>
-        <Link to='/register' className='w-full'>
+        {/* <Link to='/register' className='w-full'> */}
           <Button variant='outlined' className='w-full border-purple text-purple text-sm'>
             Đăng ký
           </Button>
-        </Link>        
+        {/* </Link>         */}
       </div>
       <Typography variant='h4' className='font-inter font-black'>
         hoặc

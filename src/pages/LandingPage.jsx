@@ -97,7 +97,7 @@ const LandingPage = () => {
             <Button className='bg-purple text-base'>Liên hệ</Button>
           </div>
         </div>
-        <div className='flex mt-40 gap-20 items-center w-full'>
+        <div className='flex mt-32 gap-20 items-center w-full'>
           <div className='flex flex-col gap-16 items-start w-1/2'>
             <Typography variant='h2' className='text-[#2F65E1] text-left'>Làm chủ cuộc sống bằng việc quản lý nhiệm vụ cá nhân một cách hệ thống</Typography>
             <Typography variant='h4' className='text-[#2F65E1] text-left font-medium'>Giúp tổ chức, theo dõi và thúc đẩy công việc của bạn một cách hiệu quả</Typography>
@@ -112,7 +112,7 @@ const LandingPage = () => {
               <img src={jira} className='w-8 rounded-lg'/>
             </div>
           </div>
-          <img src={screenshot} className='w-[45rem]'/>
+          <img src={screenshot} className='w-[40rem]'/>
         </div>
       </main>
       {/* <footer className="flex w-full flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 py-6 text-center md:justify-between bg-darkPurple">
