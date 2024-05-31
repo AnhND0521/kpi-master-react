@@ -52,7 +52,7 @@ const AddTask = ({kpi, open, setOpen}) => {
       priority: priority,
       repeat: repeat,
       noti: reminder,
-      rated: 5
+      quality: 5
     }
 
     console.log(task);
