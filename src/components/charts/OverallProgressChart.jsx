@@ -20,17 +20,17 @@ const OverallProgressChart = () => {
         series={[
           {
             data: [11, 14, 16, 20, 23, 25, 30, 33, 36, 37],
-            color: '#7E56DA',
+            color: 'skyblue',
             label: 'Giảng dạy'
           },
           {
             data: [24, 28, 34, 36, 40, 44, 52, 57, 59, 63],
-            color: 'green',
+            color: '#1976d2',
             label: 'Nghiên cứu'
           },          
           {
             data: [6, 13, 20, 24, 30, 33, 39, 42, 47, 50],
-            color: 'red',
+            color: '#FF6B6F',
             label: 'Phục vụ'
           },
         ]}
