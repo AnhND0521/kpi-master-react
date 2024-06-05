@@ -17,6 +17,7 @@
     "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-big-calendar": "^1.12.2",
+    "react-custom-roulette": "^1.4.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
