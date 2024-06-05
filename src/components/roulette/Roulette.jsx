@@ -4,6 +4,7 @@ import { Wheel } from "react-custom-roulette";
 import Wrapper from "../Wrapper";
 import MessageDialog from "../MessageDialog";
 import coin from "../../assets/coin.png";
+import BuySpinsDialog from "./BuySpinsDialog";
 
 const Roulette = ({ data }) => {
   const [mustSpin, setMustSpin] = useState(false);
@@ -11,23 +12,37 @@ const Roulette = ({ data }) => {
   const [prize, setPrize] = useState(0);
   const [rouletteData, setRouletteData] = useState(data);
   const [openResultDialog, setOpenResultDialog] = useState(false);
+  const [openBuySpinsDialog, setOpenBuySpinsDialog] = useState(false);
   const [coins, setCoins] = useState(0);
-  const [turns, setTurns] = useState(5);
+  const [turns, setTurns] = useState(0);
 
   const handleSpinClick = () => {
+    if (turns === 0) {
+      setOpenBuySpinsDialog(true);
+      return;
+    }
+
     let newPrizeIndex = Math.floor(Math.random() * data.length);
-    let newPrize = +data[newPrizeIndex].text.slice(0, data[newPrizeIndex].text.indexOf('🪙'));
-    console.log(data[newPrizeIndex].text.slice(0, data[newPrizeIndex].text.indexOf('🪙')));
+    let newPrize = +data[newPrizeIndex].text.slice(
+      0,
+      data[newPrizeIndex].text.indexOf("🪙")
+    );
+    console.log(
+      data[newPrizeIndex].text.slice(0, data[newPrizeIndex].text.indexOf("🪙"))
+    );
     while (newPrize >= 100) {
       let rate = Math.random();
       if (rate <= 0.05) break;
       newPrizeIndex = Math.floor(Math.random() * data.length);
-      newPrize = +data[newPrizeIndex].text.slice(0, data[newPrizeIndex].text.indexOf('🪙'));
+      newPrize = +data[newPrizeIndex].text.slice(
+        0,
+        data[newPrizeIndex].text.indexOf("🪙")
+      );
     }
     setPrizeIndex(newPrizeIndex);
     setPrize(newPrize);
     setMustSpin(true);
-    setTurns(cur => cur - 1);
+    setTurns((cur) => cur - 1);
   };
 
   useEffect(() => {
@@ -45,7 +60,9 @@ const Roulette = ({ data }) => {
 
   return (
     <div align="center" className="w-full flex flex-col gap-5 items-center">
-      <Typography className="text-xl font-medium">Bạn đã nhận được: {coins}🪙</Typography>
+      <Typography className="text-xl font-medium">
+        Bạn đã nhận được: {coins}🪙
+      </Typography>
       <Wheel
         mustStartSpinning={mustSpin}
         spinDuration={[0.2]}
@@ -82,7 +99,9 @@ const Roulette = ({ data }) => {
       <Button className="bg-purple w-48 text-base" onClick={handleSpinClick}>
         Quay
       </Button>
-      <Typography className="text-base font-medium">Bạn còn {turns} lượt quay</Typography>
+      <Typography className="text-base font-medium">
+        Bạn còn {turns} lượt quay
+      </Typography>
       <MessageDialog
         message={`Bạn đã nhận được +${data[prizeIndex].text}!`}
         open={openResultDialog}
@@ -90,6 +109,15 @@ const Roulette = ({ data }) => {
         handleConfirm={() => {
           setOpenResultDialog(false);
           setCoins((cur) => cur + prize);
+        }}
+      />
+      <BuySpinsDialog
+        open={openBuySpinsDialog}
+        handleOpen={setOpenBuySpinsDialog}
+        handleCancel={() => setOpenBuySpinsDialog(false)}
+        handleBuy={(quantity) => {
+          setTurns(turns + quantity);
+          setOpenBuySpinsDialog(false);
         }}
       />
     </div>
