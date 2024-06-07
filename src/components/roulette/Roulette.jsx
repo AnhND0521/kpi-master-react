@@ -14,7 +14,7 @@ const Roulette = ({ data, setTotalCoins }) => {
   const [openResultDialog, setOpenResultDialog] = useState(false);
   const [openBuySpinsDialog, setOpenBuySpinsDialog] = useState(false);
   const [coins, setCoins] = useState(0);
-  const [turns, setTurns] = useState(5);
+  const [turns, setTurns] = useState(2);
 
   const handleSpinClick = () => {
     if (turns === 0) {

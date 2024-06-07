@@ -10,9 +10,9 @@ const RouletteEntryPoint = () => {
         <div className="flex gap-2 items-center justify-start text-[#FF4545]">
           <img src={wheel} className="w-8" />
           <Typography variant="h6" className="w-full text-left font-inter">
-            <span className="font-bold">Bạn được tặng 5 lượt quay </span>
+            <span className="font-bold">Bạn được tặng 2 lượt quay </span>
             <span className="font-medium">
-              nhờ chuỗi 5 ngày liên tiếp hoàn thành nhiệm vụ!{" "}
+              nhờ chuỗi 2 ngày liên tiếp hoàn thành nhiệm vụ!{" "}
               <Link to={"/gacha"}>
                 <b>Quay ngay</b>
               </Link>{" "}
