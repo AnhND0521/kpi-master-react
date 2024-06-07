@@ -13,7 +13,7 @@ const Header = (props) => {
       <Link to='/dashboard' className='flex items-center justify-start gap-4'>
           <img src={logo} className='h-10 ml-3' />
           <div>
-            <Typography variant='h5' color='white' className='font-inter'>
+            <Typography variant='h5' color='white' className='text-2xl font-garamond font-semibold italic'>
               KPI Master
             </Typography>
           </div>

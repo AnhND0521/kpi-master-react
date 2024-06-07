@@ -100,10 +100,10 @@ const LandingPage = () => {
           <div className="flex gap-4 items-center">
             <img src={logo} className="w-16" />
             <div className="flex flex-col items-start gap-2">
-              <Typography className="text-3xl text-[#2F65E1] font-medium">
+              <Typography className="text-3xl text-[#2F65E1] font-semibold italic font-garamond">
                 KPI Master
               </Typography>
-              <Typography className="text-xl text-[#2F65E1] font-normal">
+              <Typography className="text-2xl text-[#2F65E1] font-medium font-garamond">
                 Master your life
               </Typography>
             </div>
@@ -125,14 +125,14 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="flex mt-32 gap-20 items-center w-full">
-          <div className="flex flex-col gap-16 items-start w-1/2">
-            <Typography variant="h2" className="text-[#2F65E1] text-left">
+          <div className="flex flex-col gap-14 items-start w-1/2">
+            <Typography variant="h2" className="text-[#2F65E1] font-semibold text-left font-inter">
               Làm chủ cuộc sống bằng việc quản lý nhiệm vụ cá nhân một cách hệ
               thống
             </Typography>
             <Typography
               variant="h4"
-              className="text-[#2F65E1] text-left font-medium"
+              className="text-[#2F65E1] text-left font-medium font-inter"
             >
               Giúp tổ chức, theo dõi và thúc đẩy công việc của bạn một cách hiệu
               quả
@@ -144,7 +144,7 @@ const LandingPage = () => {
               Bắt đầu ngay
             </Button>
             <div className="flex gap-12 items-center w-full justify-start">
-              <Typography className="text-lg font-medium text-[#2F65E1]">
+              <Typography className="text-lg font-semibold text-[#2F65E1] font-inter">
                 Hỗ trợ đồng bộ với
               </Typography>
               <img src={hust} className="w-8" />

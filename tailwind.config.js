@@ -24,7 +24,10 @@ module.exports = withMT({
     },
     extend: {
       fontFamily: { 
-        "inter": ['inter', 'sans-serif'] 
+        "inter": ['inter', 'sans-serif'],
+        "trebuchet": ['Trebuchet MS', 'sans-serif'],
+        "garamond": ['Garamond', 'serif'],
+        "georgia": ['Georgia', 'serif']
       } 
     },
   },
