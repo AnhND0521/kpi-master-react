@@ -12,35 +12,35 @@ const Notifications = () => {
     const [notifications, setNotifications] = useState([
         {
             id: 1,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Học UI/UX' đến hạn vào hôm nay! Hãy nhớ hoàn thành nhé!",
             time: new Date(),
             type: 0,
             read: false
         },
         {
             id: 2,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Làm BTVN' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
             time: new Date(),
             type: 1,
             read: false
         },
         {
             id: 3,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Báo cáo GR1' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
             time: new Date(),
             type: 0,
             read: true
         },
         {
             id: 4,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Học ITSS' đến hạn vào hôm nay! Hãy nhớ hoàn thành nhé!",
             time: new Date(),
             type: 0,
             read: true
         },
         {
             id: 5,
-            content: "Nhiệm vụ 'ABC' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
+            content: "Nhiệm vụ 'Chuẩn bị bài' đã bị quá hạn! Hãy hoàn thành trước khi quá muộn!",
             time: new Date(),
             type: 1,
             read: false

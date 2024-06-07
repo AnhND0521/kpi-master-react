@@ -3,7 +3,7 @@ const data = [
         id: '1',
         name: 'Giảng dạy',
         description: '',
-        due: new Date("2024-06-18"),
+        due: new Date("2024-07-18"),
         repeat: 0,
         weights: {
             quantity: 50,
@@ -14,7 +14,7 @@ const data = [
             {
                 id: '1.1',
                 name: 'Dạy UI/UX',
-                date: new Date("2024-05-16"),
+                date: new Date("2024-06-16"),
                 start: "9:20",
                 end: "11:45",
                 status: 2,
@@ -26,7 +26,7 @@ const data = [
             {
                 id: '1.2',
                 name: 'Dạy hệ tương tác',
-                date: new Date("2024-05-13"),
+                date: new Date("2024-06-13"),
                 start: "12:30",
                 end: "14:00",
                 status: 1,
@@ -34,12 +34,12 @@ const data = [
                 noti: 1,
                 priority: 2,
                 quality: 5,
-                completed: new Date("2024-05-13T13:59:00.000Z")
+                completed: new Date("2024-06-13T13:59:00.000Z")
             },
             {
                 id: '1.3',
                 name: 'Dạy công nghệ phần mềm',
-                date: new Date("2024-05-14"),
+                date: new Date("2024-06-14"),
                 start: "15:05",
                 end: "17:30",
                 status: 1,
@@ -47,12 +47,12 @@ const data = [
                 noti: 1,
                 priority: 2,
                 quality: 5,
-                completed: new Date("2024-05-14T16:45:00.000Z")
+                completed: new Date("2024-06-14T16:45:00.000Z")
             },
             {
                 id: '1.4',
                 name: 'Chấm bài sinh viên',
-                date: new Date("2024-05-15"),
+                date: new Date("2024-06-15"),
                 start: "17:30",
                 end: "19:00",
                 status: 2,
@@ -64,7 +64,7 @@ const data = [
             {
                 id: '1.5',
                 name: 'Soạn đề thi cuối kỳ',
-                date: new Date("2024-05-20"),
+                date: new Date("2024-06-20"),
                 start: "12:30",
                 end: "14:00",
                 status: 1,
@@ -72,12 +72,12 @@ const data = [
                 noti: 1,
                 priority: 2,
                 quality: 5,
-                completed: new Date("2024-05-20T13:59:00.000Z")
+                completed: new Date("2024-06-20T13:59:00.000Z")
             },
             {
                 id: '1.6',
                 name: 'Dạy IT4321',
-                date: new Date("2024-05-25"),
+                date: new Date("2024-06-25"),
                 start: "8:25",
                 end: "11:45",
                 status: 0,
@@ -89,7 +89,7 @@ const data = [
             {
                 id: '1.7',
                 name: 'Dạy IT1234',
-                date: new Date("2024-05-22"),
+                date: new Date("2024-06-22"),
                 start: "14:10",
                 end: "15:50",
                 status: 0,
@@ -101,7 +101,7 @@ const data = [
             {
                 id: '1.8',
                 name: 'Chấm bài',
-                date: new Date("2024-05-29"),
+                date: new Date("2024-06-29"),
                 start: "11:45",
                 end: "15:00",
                 status: 1,
@@ -109,7 +109,7 @@ const data = [
                 noti: 0,
                 priority: 2,
                 quality: 5,
-                completed: new Date("2024-05-24T15:59:00.000Z")
+                completed: new Date("2024-06-24T15:59:00.000Z")
             },
             {
                 id: '1.9',
@@ -153,7 +153,7 @@ const data = [
         id: '2',
         name: 'Nghiên cứu',
         description: '',
-        due: new Date("2024-06-18"),
+        due: new Date("2024-07-18"),
         repeat: 0,
         weights: {
             quantity: 50,
@@ -164,7 +164,7 @@ const data = [
             {
                 id: '2.1',
                 name: 'Báo cáo đề tài ABC',
-                date: new Date("2024-05-16"),
+                date: new Date("2024-06-16"),
                 start: "9:20",
                 end: "11:45",
                 status: 1,
@@ -172,12 +172,12 @@ const data = [
                 noti: 0,
                 priority: 2,
                 quality: 5,
-                completed: new Date("2024-05-16T11:40:00.000Z")
+                completed: new Date("2024-06-16T11:40:00.000Z")
             },
             {
                 id: '2.2',
                 name: 'Nghiên cứu đề tài XYZ',
-                date: new Date("2024-05-18"),
+                date: new Date("2024-06-18"),
                 start: "12:30",
                 end: "15:50",
                 status: 2,
@@ -189,7 +189,7 @@ const data = [
             {
                 id: '2.3',
                 name: 'Họp lab',
-                date: new Date("2024-05-22"),
+                date: new Date("2024-06-22"),
                 start: "6:45",
                 end: "10:05",
                 status: 1,
@@ -197,12 +197,12 @@ const data = [
                 noti: 0,
                 priority: 2,
                 quality: 5,
-                completed: new Date("2024-05-22T10:20:00.000Z")
+                completed: new Date("2024-06-22T10:20:00.000Z")
             },
             {
                 id: '2.4',
                 name: 'Trình bày đề tài trước Bộ',
-                date: new Date("2024-05-14"),
+                date: new Date("2024-06-14"),
                 start: "15:00",
                 end: "17:30",
                 status: 1,
@@ -210,12 +210,12 @@ const data = [
                 noti: 0,
                 priority: 2,
                 quality: 5,
-                completed: new Date("2024-05-14T17:30:00.000Z")
+                completed: new Date("2024-06-14T17:30:00.000Z")
             },
             {
                 id: '2.5',
                 name: 'Lên lab',
-                date: new Date("2024-05-25"),
+                date: new Date("2024-06-25"),
                 start: "14:00",
                 end: "17:30",
                 status: 0,
@@ -268,7 +268,7 @@ const data = [
         id: '3',
         name: 'Phục vụ',
         description: '',
-        due: new Date("2024-06-18"),
+        due: new Date("2024-07-18"),
         repeat: 0,
         weights: {
             quantity: 50,
@@ -279,7 +279,7 @@ const data = [
             {
                 id: '3.1',
                 name: 'Họp hội đồng cán bộ',
-                date: new Date("2024-05-14"),
+                date: new Date("2024-06-14"),
                 start: "14:30",
                 end: "16:30",
                 status: 1,
@@ -287,7 +287,7 @@ const data = [
                 noti: 0,
                 priority: 2,
                 quality: 5,
-                completed: new Date("2024-05-14T16:15:00.000Z")
+                completed: new Date("2024-06-14T16:15:00.000Z")
             },
             {
                 id: '3.2',
