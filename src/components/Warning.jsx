@@ -4,7 +4,7 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 const Warning = () => {
   return (
-    <Card className='flex items-center justify-center px-3 py-3 mb-2 bg-[#FFECEE] w-full self-stretch'>
+    <Card className='flex items-center justify-center px-3 py-3 mb-2 bg-[#faf7ed] w-full self-stretch'>
       <div className='flex gap-2 items-center justify-start text-[#FF4545]'>
       <ExclamationTriangleIcon className='w-6' />
       <Typography variant='h6' className='w-full text-left font-inter'>

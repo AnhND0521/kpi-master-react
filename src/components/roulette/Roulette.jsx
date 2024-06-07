@@ -6,7 +6,7 @@ import MessageDialog from "../MessageDialog";
 import coin from "../../assets/coin.png";
 import BuySpinsDialog from "./BuySpinsDialog";
 
-const Roulette = ({ data }) => {
+const Roulette = ({ data, setTotalCoins }) => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeIndex, setPrizeIndex] = useState(0);
   const [prize, setPrize] = useState(0);
@@ -14,7 +14,7 @@ const Roulette = ({ data }) => {
   const [openResultDialog, setOpenResultDialog] = useState(false);
   const [openBuySpinsDialog, setOpenBuySpinsDialog] = useState(false);
   const [coins, setCoins] = useState(0);
-  const [turns, setTurns] = useState(0);
+  const [turns, setTurns] = useState(5);
 
   const handleSpinClick = () => {
     if (turns === 0) {
@@ -30,7 +30,7 @@ const Roulette = ({ data }) => {
     console.log(
       data[newPrizeIndex].text.slice(0, data[newPrizeIndex].text.indexOf("🪙"))
     );
-    while (newPrize >= 100) {
+    while (newPrize >= 50) {
       let rate = Math.random();
       if (rate <= 0.05) break;
       newPrizeIndex = Math.floor(Math.random() * data.length);
@@ -92,11 +92,10 @@ const Roulette = ({ data }) => {
         ]}
         onStopSpinning={() => {
           setMustSpin(false);
-          setCoins(coins + prize);
           setOpenResultDialog(true);
         }}
       />
-      <Button className="bg-purple w-48 text-base" onClick={handleSpinClick}>
+      <Button className="bg-purple w-48 text-base" onClick={handleSpinClick} disabled={mustSpin}>
         Quay
       </Button>
       <Typography className="text-base font-medium">
@@ -109,6 +108,7 @@ const Roulette = ({ data }) => {
         handleConfirm={() => {
           setOpenResultDialog(false);
           setCoins((cur) => cur + prize);
+          setTotalCoins(cur => cur + prize);
         }}
       />
       <BuySpinsDialog
