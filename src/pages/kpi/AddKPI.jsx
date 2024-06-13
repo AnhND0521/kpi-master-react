@@ -40,7 +40,7 @@ const AddKPI = ({open, setOpen, setCurrentKpis, setPastKpis}) => {
         <Typography variant='h5'>Tạo KPI</Typography>
         <XMarkIcon className='w-5 cursor-pointer' onClick={() => { setOpen(false); } } />
       </DialogHeader>
-      <DialogBody className='text-black px-6 py-6 h-[34rem] overflow-y-scroll'>
+      <DialogBody className='text-black px-6 py-6 h-[40rem] overflow-y-scroll'>
         <main className='flex flex-col gap-4 p-4'>
           <AddKPIStepIndicator step={step} />
           <div className='mt-5'>

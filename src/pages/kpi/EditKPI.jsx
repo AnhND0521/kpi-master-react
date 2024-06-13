@@ -58,7 +58,7 @@ const EditKPI = ({open, setOpen, kpi, setKPI}) => {
         <Typography variant='h5'>Chỉnh sửa KPI</Typography>
         <XMarkIcon className='w-5 cursor-pointer' onClick={() => { setOpen(false); } } />
       </DialogHeader>
-      <DialogBody className='text-black px-6 py-6 pt-0 h-[34rem] overflow-y-scroll'>
+      <DialogBody className='text-black px-6 py-6 pt-0 h-[40rem] overflow-y-scroll'>
       <form onSubmit={handleSubmit}>
       <main className='flex flex-col gap-4 p-4'>
         <Typography className='font-inter font-semibold text-lg self-start'>

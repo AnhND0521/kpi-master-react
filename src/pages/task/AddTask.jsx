@@ -14,7 +14,6 @@ import Wrapper from '../../components/Wrapper';
 import PageHeader from '../../components/PageHeader';
 import BackButton from '../../components/BackButton';
 import DateInput from '../../components/DateInput';
-import TimeInput from 'react-time-picker/dist/TimeInput';
 
 const AddTask = ({kpi, open, setOpen}) => {
   const id = kpi.id;
