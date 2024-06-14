@@ -119,7 +119,7 @@ const RouletteGame = () => {
         </Breadcrumbs>
       </div>
       <PageHeader label={"Vòng quay may mắn"} />
-      <Typography className="text-base font-normal">Hãy làm việc chăm chỉ để nhận thêm lượt quay mỗi ngày!</Typography>
+      <Typography className="text-base font-normal text-left">Số lượt quay bạn nhận được mỗi ngày sẽ ứng với số ngày liên tiếp hoàn thành nhiệm vụ tính tới ngày đó!<br/>Hãy chăm chỉ làm việc để nhận thêm lượt quay!</Typography>
       <div className="w-full flex gap-10 justify-start items-start mt-3">
         <Roulette data={data} setTotalCoins={setTotalCoins} />
         <div className="flex flex-col gap-10 w-full items-center">
